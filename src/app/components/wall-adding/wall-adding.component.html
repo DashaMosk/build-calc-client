@@ -1,0 +1,17 @@
+<form class="wall-form" [formGroup]="rForm" (ngSubmit)="addWall(rForm.value)">
+  <table class="wall-full-width" cellspacing="0"><tr>
+    <td><md-input-container class="room-full-width">
+      <input mdInput placeholder="Name" maxlength="150" formControlName="name">
+    </md-input-container></td>
+    <td><md-input-container class="wall-full-width">
+      <input mdInput placeholder="Width" maxlength="3" formControlName="width">
+    </md-input-container></td>
+    <td><md-input-container class="wall-full-width">
+      <input mdInput placeholder="Height" maxlength="3" formControlName="height">
+    </md-input-container></td>
+  </tr></table>
+
+  <div class="button-row">
+    <button md-raised-button [disabled]="!rForm.valid">Add Wall</button>
+  </div>
+</form>

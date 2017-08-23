@@ -1,0 +1,4 @@
+<div *ngFor="let wall of wallLst">
+  <app-wall-info [wall]="wall" (onWallDelete)="deleteWall($event)"></app-wall-info>
+  <br>
+</div>

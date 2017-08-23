@@ -1,0 +1,6 @@
+<md-toolbar color="primary">
+  <a md-mini-fab routerLink="/facilities/"><md-icon>home</md-icon></a>
+  <a md-mini-fab routerLink="/packing/"><md-icon>add_box</md-icon></a>
+</md-toolbar>
+<app-stuff-table [stuffList]="stuffList"></app-stuff-table>
+<app-stuff-adding (onPost)="addNewStuff($event)"></app-stuff-adding>

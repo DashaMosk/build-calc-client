@@ -1,0 +1,5 @@
+<md-toolbar color="primary">
+  <a md-mini-fab routerLink="/facilities/"><md-icon>arrow_back</md-icon></a>
+</md-toolbar>
+<app-facility-equipment-list [items]="facilityEquipmentList" (onRemove)="removeItem($event)"></app-facility-equipment-list>
+<app-facility-equipment-adding (onAdd)="addFEquipment($event)"></app-facility-equipment-adding>

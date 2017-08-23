@@ -1,0 +1,4 @@
+<div *ngFor="let room of roomLst">
+  <app-room-info [room]="room" (onDelete)="deleteRoom($event)"></app-room-info>
+  <br>
+</div>

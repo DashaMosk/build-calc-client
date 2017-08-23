@@ -1,0 +1,22 @@
+<form class="stuff-form" [formGroup]="rForm" (ngSubmit)="addStuff(rForm.value)">
+  <table class="stuff-full-width" cellspacing="0"><tr>
+    <td><md-input-container class="stuff-full-width">
+      <input mdInput placeholder="Name" maxlength="150" formControlName="name">
+    </md-input-container></td>
+    <td><md-select  placeholder="Select a pack" [(ngModel)]="selectedPackId" formControlName="packing">
+        <md-option *ngFor="let pack of packingList" [value]="pack.id">
+          {{pack.name + ',' + pack.quantity + ' '+ pack.unit}}
+        </md-option>
+      </md-select>
+    </td>
+    <td><md-input-container class="stuff-full-width">
+      <input mdInput appDoubleFormatter placeholder="Consumption" formControlName="consumption">
+    </md-input-container></td>
+    <td><md-input-container class="stuff-full-width">
+      <input mdInput appDoubleFormatter placeholder="Price" formControlName="price">
+    </md-input-container></td>
+    <td><md-checkbox class="example-margin" [(ngModel)]="isClean" formControlName="isClean" ngDefaultControl>Is Clean</md-checkbox></td>
+    <td><button md-raised-button [disabled]="!rForm.valid">Add Stuff</button></td>
+  </tr></table>
+</form>
+

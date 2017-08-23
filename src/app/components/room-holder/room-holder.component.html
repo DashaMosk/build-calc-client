@@ -1,0 +1,7 @@
+<md-toolbar color="primary">
+  <a md-mini-fab routerLink="/facilities/"><md-icon>home</md-icon></a>
+</md-toolbar>
+
+<app-room-adding (onPost)="addRoom($event)"></app-room-adding>
+<app-room-player [roomLst]="roomList" (onDelete)="deleteRoom($event)"></app-room-player>
+

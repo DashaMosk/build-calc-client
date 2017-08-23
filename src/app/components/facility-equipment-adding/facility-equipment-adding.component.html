@@ -1,0 +1,19 @@
+<div class="adding-container">
+  <md-radio-group [(ngModel)]="type">
+    <md-radio-button class="radio-margin" value="WALL">Wall</md-radio-button>
+    <md-radio-button class="radio-margin" value="CEILING">Ceiling</md-radio-button>
+    <md-radio-button class="radio-margin" value="FLOOR">Floor</md-radio-button>
+  </md-radio-group>
+  <br>
+  <p-autoComplete [(ngModel)]="stuffItem" [suggestions]="filteredStuff" (completeMethod)="filterStuff($event)" [size]="30"
+                  [minLength]="1" placeholder="Type name" field="name">
+    <ng-template let-stuffItem pTemplate="item">
+      <div class="ui-helper-clearfix">
+        {{stuffItem.name}} - {{stuffItem.price}}
+      </div>
+    </ng-template>
+  </p-autoComplete>
+  <a md-mini-fab (click)="addItem()"><md-icon>send</md-icon></a>
+  <p-messages [(value)]="msgs"></p-messages>
+</div>
+

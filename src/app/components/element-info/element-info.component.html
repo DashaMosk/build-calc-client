@@ -1,0 +1,17 @@
+<md-list>
+  <h3 md-subheader>Decorations</h3>
+  <md-list-item *ngFor="let decoration of decorations">
+    <img md-list-avatar src="../../../assets/img/fill-icon.png">
+    <h4 md-line>{{decoration.type}}</h4>
+    <p md-line>width {{decoration.width}}, height {{decoration.height}} </p>
+    <button md-button (click)="deleteDecoration(decoration)">Delete</button>
+  </md-list-item>
+  <md-divider></md-divider>
+  <h3 md-subheader>Apertures</h3>
+  <md-list-item *ngFor="let aperture of apertures">
+    <img md-list-avatar src="../../../assets/img/door-icon.png">
+    <h4 md-line>{{aperture.type}}</h4>
+    <p md-line> width {{aperture.width}}, height {{aperture.height}} </p>
+    <button md-button (click)="deleteAperture(aperture)">Delete</button>
+  </md-list-item>
+</md-list>

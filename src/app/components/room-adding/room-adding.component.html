@@ -1,0 +1,13 @@
+<form class="room-form" [formGroup]="rForm" (ngSubmit)="addRoom(rForm.value)">
+  <table class="room-full-width" cellspacing="0"><tr>
+    <td><md-input-container class="room-full-width">
+      <input mdInput placeholder="Name" #namef maxlength="150" formControlName="name">
+      <md-hint align="end">{{namef.value.length}} / 150</md-hint>
+    </md-input-container></td>
+    <td><md-input-container class="room-full-width">
+      <input mdInput placeholder="Height(sm)" #heightf maxlength="3" type="number" formControlName="height">
+      <md-hint align="end">{{heightf.value.length}} / 3</md-hint>
+    </md-input-container></td>
+  </tr></table>
+  <button md-raised-button [disabled]="!rForm.valid">Save Room</button>
+</form>

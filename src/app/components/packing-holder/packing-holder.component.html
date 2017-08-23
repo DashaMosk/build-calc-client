@@ -1,0 +1,6 @@
+<md-toolbar color="primary">
+  <a md-mini-fab routerLink="/facilities/"><md-icon>home</md-icon></a>
+  <a md-mini-fab routerLink="/stuff/"><md-icon>arrow_back</md-icon></a>
+</md-toolbar>
+<app-packing-table [packageList]="packingList"></app-packing-table>
+<app-packing-adding (onPost)="addNewPack($event)"></app-packing-adding>

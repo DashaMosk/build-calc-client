@@ -1,0 +1,22 @@
+.wall-card {
+  width: 720px;
+}
+
+.wall-header-image {
+  background-image: url('../../../assets/img/wall-icon.png');
+  background-size: cover;
+}
+
+.dialog-form {
+  width: 500px;
+  padding: 20px;
+}
+
+.dialog-full-width {
+  width: 100%;
+}
+
+.input-switch {
+  padding-top: 20px;
+  padding-left: 40px;
+}

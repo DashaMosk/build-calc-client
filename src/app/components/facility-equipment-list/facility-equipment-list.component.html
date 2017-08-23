@@ -1,0 +1,56 @@
+<div>
+  <div class="ui-g">
+    <div class="ui-g-6">
+      Walls. Clear materials
+      <div *ngFor="let item of items">
+        <div *ngIf="item.stuff.isClean && item.type==='WALL'">
+          <app-facility-equipment-element [item]="item" (onRemove)="removeItem(item)"></app-facility-equipment-element>
+        </div>
+      </div>
+    </div>
+    <div class="ui-g-6">
+      Walls. Rough materials
+      <div *ngFor="let item of items">
+        <div *ngIf="!item.stuff.isClean && item.type==='WALL'">
+          <app-facility-equipment-element [item]="item" (onRemove)="removeItem(item)"></app-facility-equipment-element>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui-g">
+    <div class="ui-g-6">
+      Floor. Clear materials
+      <div *ngFor="let item of items">
+        <div *ngIf="item.stuff.isClean && item.type==='FLOOR'">
+          <app-facility-equipment-element [item]="item" (onRemove)="removeItem(item)"></app-facility-equipment-element>
+        </div>
+      </div>
+    </div>
+    <div class="ui-g-6">
+      Floor.  Rough materials
+      <div *ngFor="let item of items">
+        <div *ngIf="!item.stuff.isClean && item.type==='FLOOR'">
+          <app-facility-equipment-element [item]="item" (onRemove)="removeItem(item)"></app-facility-equipment-element>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui-g">
+    <div class="ui-g-6">
+      Ceiling. Clear materials
+      <div *ngFor="let item of items">
+        <div *ngIf="item.stuff.isClean && item.type==='CEILING'">
+          <app-facility-equipment-element [item]="item" (onRemove)="removeItem(item)"></app-facility-equipment-element>
+        </div>
+      </div>
+    </div>
+    <div class="ui-g-6">
+      Ceiling.  Rough materials
+      <div *ngFor="let item of items">
+        <div *ngIf="!item.stuff.isClean && item.type==='CEILING'">
+          <app-facility-equipment-element [item]="item" (onRemove)="removeItem(item)"></app-facility-equipment-element>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

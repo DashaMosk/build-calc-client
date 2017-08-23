@@ -1,0 +1,5 @@
+<md-toolbar color="primary">
+  <a md-mini-fab routerLink="/stuff/"><md-icon>format_paint</md-icon></a>
+</md-toolbar>
+<app-facility-adding (onPost)="addFacility($event)"></app-facility-adding>
+<app-facility-player (onDelete)="deleteFacility($event)" [facilityList]="facilityList"></app-facility-player>

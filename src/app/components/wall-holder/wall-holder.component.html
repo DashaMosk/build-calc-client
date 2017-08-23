@@ -1,0 +1,6 @@
+<md-toolbar color="primary">
+  <a md-mini-fab routerLink="/facilities/"><md-icon>home</md-icon></a>
+  <a md-mini-fab routerLink="/rooms/{{roomId}}"><md-icon>arrow_back</md-icon></a>
+</md-toolbar>
+<app-wall-adding (onPost)="addWall($event)"></app-wall-adding>
+<app-wall-player [wallLst]="wallList" (onDelete)="deleteWall($event)"></app-wall-player>

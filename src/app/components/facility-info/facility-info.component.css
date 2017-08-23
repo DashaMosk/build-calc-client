@@ -1,0 +1,8 @@
+.facility-card {
+  width: 720px;
+}
+
+.facility-header-image {
+  background-image: url('../../../assets/img/home-icon.png');
+  background-size: cover;
+}

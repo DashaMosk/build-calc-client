@@ -1,0 +1,12 @@
+<div>
+  <p-accordion [multiple]="true">
+    <div *ngFor="let room of roomList">
+      <p-accordionTab>
+      <p-header>
+        {{room.name}}
+      </p-header>
+        {{room.height}}
+      </p-accordionTab>
+    </div>
+  </p-accordion>
+</div>

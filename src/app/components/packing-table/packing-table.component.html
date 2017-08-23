@@ -1,0 +1,11 @@
+<div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none">
+  <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+  <input #gb type="text" pInputText size="50" placeholder="Package Filter">
+</div>
+<p-dataTable [value]="packageList" [responsive]="true" [rows]="10" [paginator]="true" [globalFilter]="gb" #dt>
+  <p-column field="name" header="Name"></p-column>
+  <p-column field="quantity" header="Quantity"></p-column>
+  <p-column field="unit" header="Unit"></p-column>
+  <p-column field="consumption" header="Consumption" ></p-column>
+</p-dataTable>
+

@@ -1,0 +1,13 @@
+<form class="facility-form" [formGroup]="rForm" (ngSubmit)="addFacility(rForm.value)">
+
+  <div>
+    <md-input-container class="facility-full-width">
+      <input mdInput placeholder="Name" formControlName="name">
+    </md-input-container>
+    <div *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">The field is requered</div>
+    <md-input-container class="facility-full-width">
+      <textarea mdInput placeholder="Description" formControlName="description"></textarea>
+    </md-input-container>
+    <button md-raised-button [disabled]="!rForm.valid" >Add facility</button>
+  </div>
+</form>

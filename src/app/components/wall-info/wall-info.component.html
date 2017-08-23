@@ -1,0 +1,34 @@
+<md-card class="wall-card">
+  <md-card-header>
+    <div md-card-avatar class="wall-header-image"></div>
+    <md-card-title>{{wall.name}}</md-card-title>
+    <md-card-subtitle>height: {{wall.height}} width: {{wall.width}}</md-card-subtitle>
+  </md-card-header>
+  <md-card-content>
+      <app-element-info [apertures]="apertureList" [decorations]="decorationList"
+                        (onApertDelete)="deleteAperture($event)" (onDecDelete)="deleteDecoration($event)">
+      </app-element-info>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button (click)="showDialog()">Add Element</button>
+    <button md-button (click)="deleteWall(wall)">Delete Wall</button>
+  </md-card-actions>
+</md-card>
+
+<p-growl [(value)]="msgs"></p-growl>
+
+<p-dialog header="Add Element" [(visible)]="display" modal="modal" width="300" [responsive]="true">
+  <div class="input-switch">
+    <p-inputSwitch onLabel="Decoration" offLabel="Aperture" [(ngModel)]="typeValue"></p-inputSwitch>
+  </div>
+  <span>Name(type)</span>
+  <p-autoComplete [(ngModel)]="type" [suggestions]="results" (completeMethod)="search($event)" size="30" ></p-autoComplete>
+  <span>Width</span>
+  <p-inputMask mask="999" [(ngModel)]="width" placeholder="300"></p-inputMask>
+  <span>Heigth</span>
+  <p-inputMask mask="999" [(ngModel)]="height" placeholder="300"></p-inputMask>
+  <p-footer>
+    <button md-button (click)="saveElement()">Save</button>
+  </p-footer>
+</p-dialog>
+

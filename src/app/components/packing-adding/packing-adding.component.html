@@ -1,0 +1,20 @@
+<form class="pack-form" [formGroup]="rForm" (ngSubmit)="addPacking(rForm.value)">
+  <table class="pack-full-width" cellspacing="0"><tr>
+    <td><md-input-container class="pack-full-width">
+      <input mdInput placeholder="Name" maxlength="150" formControlName="name">
+    </md-input-container></td>
+    <td><md-select placeholder="Select a unit" [(ngModel)]="selectedUnit" formControlName="unit">
+      <md-option *ngFor="let unit of units" [value]="unit" >
+        {{unit}}
+      </md-option>
+    </md-select>
+    </td>
+    <td><md-input-container class="pack-full-width">
+      <input type="number" mdInput placeholder="Quantity" formControlName="quantity">
+    </md-input-container></td>
+    <td><md-input-container class="pack-full-width">
+      <input type="number" mdInput placeholder="Consumption" formControlName="consumption">
+    </md-input-container></td>
+    <td><button md-raised-button [disabled]="!rForm.valid">Add Packing</button></td>
+  </tr></table>
+</form>
