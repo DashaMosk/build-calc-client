@@ -1,7 +1,15 @@
 <div>
   <div class="ui-g">
     <div class="ui-g-6">
-      Walls. Clear materials
+     <h4>Finishing materials</h4>
+    </div>
+    <div class="ui-g-6">
+      <h4>Rough materials</h4>
+    </div>
+  </div>
+  <div class="ui-g">
+    <div class="ui-g-6">
+      Walls:
       <div *ngFor="let item of items">
         <div *ngIf="item.stuff.isClean && item.type==='WALL'">
           <app-facility-equipment-element [item]="item" (onRemove)="removeItem(item)"></app-facility-equipment-element>
@@ -9,7 +17,7 @@
       </div>
     </div>
     <div class="ui-g-6">
-      Walls. Rough materials
+      Walls:
       <div *ngFor="let item of items">
         <div *ngIf="!item.stuff.isClean && item.type==='WALL'">
           <app-facility-equipment-element [item]="item" (onRemove)="removeItem(item)"></app-facility-equipment-element>
@@ -19,7 +27,7 @@
   </div>
   <div class="ui-g">
     <div class="ui-g-6">
-      Floor. Clear materials
+      Floor:
       <div *ngFor="let item of items">
         <div *ngIf="item.stuff.isClean && item.type==='FLOOR'">
           <app-facility-equipment-element [item]="item" (onRemove)="removeItem(item)"></app-facility-equipment-element>
@@ -27,7 +35,7 @@
       </div>
     </div>
     <div class="ui-g-6">
-      Floor.  Rough materials
+      Floor:
       <div *ngFor="let item of items">
         <div *ngIf="!item.stuff.isClean && item.type==='FLOOR'">
           <app-facility-equipment-element [item]="item" (onRemove)="removeItem(item)"></app-facility-equipment-element>
@@ -37,7 +45,7 @@
   </div>
   <div class="ui-g">
     <div class="ui-g-6">
-      Ceiling. Clear materials
+      Ceiling:
       <div *ngFor="let item of items">
         <div *ngIf="item.stuff.isClean && item.type==='CEILING'">
           <app-facility-equipment-element [item]="item" (onRemove)="removeItem(item)"></app-facility-equipment-element>
@@ -45,7 +53,7 @@
       </div>
     </div>
     <div class="ui-g-6">
-      Ceiling.  Rough materials
+      Ceiling:
       <div *ngFor="let item of items">
         <div *ngIf="!item.stuff.isClean && item.type==='CEILING'">
           <app-facility-equipment-element [item]="item" (onRemove)="removeItem(item)"></app-facility-equipment-element>

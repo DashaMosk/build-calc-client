@@ -119,7 +119,7 @@ import { FacilityEquipmentElementComponent } from './components/facility-equipme
         component: RoomHolderComponent
       },
       {
-        path: 'walls/:id',
+        path: 'walls/:facilityId/:roomId',
         component: WallHolderComponent
       },
       {

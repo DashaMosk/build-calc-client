@@ -11,10 +11,12 @@ import {Room} from '../../domain/room';
 })
 export class WallHolderComponent implements OnInit {
   roomId: number;
+  facilityId: number;
   wallList: Wall[];
 
   constructor(private route: ActivatedRoute, private wallService: WallService) {
-    this.roomId = route.snapshot.params['id'];
+    this.facilityId = route.snapshot.params['facilityId'];
+    this.roomId = route.snapshot.params['roomId'];
   }
 
   ngOnInit() {

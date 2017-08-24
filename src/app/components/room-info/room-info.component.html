@@ -8,7 +8,7 @@
     <app-wall-card [room]="room"></app-wall-card>
   </md-card-content>
   <md-card-actions>
-    <button md-button [routerLink]="['/walls/' + room.id]">Add Wall</button>
+    <button md-button [routerLink]="['/walls/' + room.facility.id + '/' + room.id]">Add Wall</button>
     <button md-button (click)="deleteRoom(room)">Delete Room</button>
   </md-card-actions>
 </md-card>

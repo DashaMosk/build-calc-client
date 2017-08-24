@@ -15,6 +15,8 @@ export class FacilityEquipmentAddingComponent implements OnInit {
   stuffItem: Stuff;
   type = 'WALL';
 
+  isClean = false;
+
   msgs: Message[] = [];
   @Output() onAdd = new EventEmitter<Stuff>();
 
@@ -27,7 +29,8 @@ export class FacilityEquipmentAddingComponent implements OnInit {
 
   filterStuff(event) {
     this.filteredStuff = this.stuff
-      .filter(stuff => stuff.name.toLowerCase().indexOf(event.query.toLowerCase()) === 0);
+      .filter(stuff => stuff.name.toLowerCase().indexOf(event.query.toLowerCase()) === 0
+        && stuff.isClean === this.isClean);
   }
 
   handleDropdownClick() {
