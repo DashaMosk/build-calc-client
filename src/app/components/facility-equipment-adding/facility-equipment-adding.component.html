@@ -10,7 +10,7 @@
                   [minLength]="1" placeholder="Type name" field="name">
     <ng-template let-stuffItem pTemplate="item">
       <div class="ui-helper-clearfix">
-        {{stuffItem.name}} - {{stuffItem.price}}
+        {{stuffItem.name}}, {{stuffItem.packing.quantity}}{{stuffItem.packing.unit}} - {{stuffItem.price}}
       </div>
     </ng-template>
   </p-autoComplete>

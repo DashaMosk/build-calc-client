@@ -35,10 +35,8 @@ export class FacilityEquipmentHolderComponent implements OnInit {
   }
 
   addFEquipment(stuff: Stuff) {
-    console.log(this.facilityId);
-    console.log(this.facilityType);
     this.equipmentService.postFEquipment(new FacilityEquipment(0, stuff, stuff.type, this.facilityId, this.facilityType))
-      .subscribe(e => { this.facilityEquipmentList.push(e);  console.log('Element was added ' + e.stuff.name + ' ' + e.stuff.isClean); }
+      .subscribe(e => { this.facilityEquipmentList.push(e); }
       , error2 => console.log(error2));
   }
 

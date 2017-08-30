@@ -3,6 +3,7 @@ import {TreeNode} from 'primeng/primeng';
 import {Room} from '../../domain/room';
 import {WallService} from '../../services/wall.service';
 import {ElementService} from '../../services/element.service';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-wall-card',
@@ -28,16 +29,16 @@ export class WallCardComponent implements OnInit {
     let children: TreeNode[] = [];
     this.wallService.getWalls(this.room.id)
       .subscribe(walls => {
-        for (const wall of walls) {
-          this.elementService.getApertures(wall.id).subscribe(aperts => {
-            children = [];
-            for (const apt of aperts) { children.push({data: apt}); }
-            this.elementService.getDecorations(wall.id).subscribe(decors => {
-              for (const decor of decors) { children.push({data: decor}); }
-              this.data.push({data: wall, children: children});
-            });
-          });
-        }},
-          err => console.log(err));
+          for (const wall of walls) {
+            Observable.forkJoin( [
+              this.elementService.getApertures(wall.id),
+              this.elementService.getDecorations(wall.id)
+            ]).subscribe(elements => {
+                children = [];
+                for (const apt of elements[0]) { children.push({data: apt}); }
+                for (const decor of elements[1]) { children.push({data: decor}); }
+                this.data.push({data: wall, children: children});
+              });
+            } } , err => console.log(err));
   }
 }
