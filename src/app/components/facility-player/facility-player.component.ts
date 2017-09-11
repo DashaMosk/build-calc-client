@@ -13,11 +13,9 @@ export class FacilityPlayerComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   deleteFacility(facility: Facility) {
     this.onDelete.emit(facility);
   }
-
 }

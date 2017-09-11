@@ -1,0 +1,28 @@
+<div class="ui-g">
+  <div class="ui-g-8 ui-g-nopad">
+    <div class="ui-g-6">
+      Finishing:
+      <div *ngFor="let item of calculation">
+        <div *ngIf="item.isClean">
+          {{item.stuffName}} {{item.calcConsumption}} {{item.measureName}}, {{item.calcPackConsumption}} {{item.packName}}
+        </div>
+      </div>
+    </div>
+    <div class="ui-g-6">
+      Rough:
+      <div *ngFor="let item of calculation">
+        <div *ngIf="!item.isClean && item.stuffId">
+          {{item.stuffName}} {{item.calcConsumption}} {{item.measureName}}, {{item.calcPackConsumption}} {{item.packName}}
+        </div>
+      </div>
+    </div>
+    <div class="ui-g-12">
+      Other:
+      <div *ngFor="let item of calculation">
+        <div *ngIf="!item.isClean && !item.stuffId">
+          {{item.stuffName}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

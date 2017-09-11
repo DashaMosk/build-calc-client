@@ -47,6 +47,8 @@ import { FacilityEquipmentHolderComponent } from './components/facility-equipmen
 import { FacilityEquipmentAddingComponent } from './components/facility-equipment-adding/facility-equipment-adding.component';
 import { FacilityEquipmentListComponent } from './components/facility-equipment-list/facility-equipment-list.component';
 import { FacilityEquipmentElementComponent } from './components/facility-equipment-element/facility-equipment-element.component';
+import {CalculationService} from './services/calculation.service';
+import { CalculationInfoComponent } from './components/calculation-info/calculation-info.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +79,7 @@ import { FacilityEquipmentElementComponent } from './components/facility-equipme
     FacilityEquipmentAddingComponent,
     FacilityEquipmentListComponent,
     FacilityEquipmentElementComponent,
+    CalculationInfoComponent,
   ],
   entryComponents: [
   ],
@@ -149,7 +152,8 @@ import { FacilityEquipmentElementComponent } from './components/facility-equipme
     StuffService,
     PackingService,
     EquipmentService,
-    DoubleFormatterPipe
+    DoubleFormatterPipe,
+    CalculationService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {RoomService} from '../../services/room.service';
 import {Room} from '../../domain/room';
+import {Result} from '../../domain/result';
 
 @Component({
   selector: 'app-room-accordion',
@@ -10,6 +11,7 @@ import {Room} from '../../domain/room';
 export class RoomAccordionComponent implements OnInit {
 
   @Input() facilityId: number;
+  @Input() calculation: Result[];
   roomList: Room[];
 
   constructor(private roomService: RoomService) { }
