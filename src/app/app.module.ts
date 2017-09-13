@@ -49,6 +49,7 @@ import { FacilityEquipmentListComponent } from './components/facility-equipment-
 import { FacilityEquipmentElementComponent } from './components/facility-equipment-element/facility-equipment-element.component';
 import {CalculationService} from './services/calculation.service';
 import { CalculationInfoComponent } from './components/calculation-info/calculation-info.component';
+import { RoomFilterComponent } from './components/room-filter/room-filter.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { CalculationInfoComponent } from './components/calculation-info/calculat
     FacilityEquipmentListComponent,
     FacilityEquipmentElementComponent,
     CalculationInfoComponent,
+    RoomFilterComponent,
   ],
   entryComponents: [
   ],

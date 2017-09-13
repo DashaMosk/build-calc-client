@@ -13,13 +13,14 @@ export class FacilityInfoComponent implements OnInit {
 
   @Input() facility: Facility;
   @Output() onDelete = new EventEmitter<Facility>();
-  resultListByRoom: Result[];
+  @Output() onCalculate = new EventEmitter<Facility>();
   resultListByFacility: Result[];
 
   constructor(public router: Router, private calculationService: CalculationService) { }
 
   ngOnInit() {
-    this.calculateConsumption(this.facility, false);
+    this.calculationService.getCalculationForFacility(this.facility.id)
+      .subscribe(result => this.resultListByFacility = result, error2 => console.log(error2));
   }
 
   deleteFacility(facility: Facility) {
@@ -27,10 +28,10 @@ export class FacilityInfoComponent implements OnInit {
   }
 
   calculateConsumption(facility: Facility, recalculate: boolean) {
-    this.resultListByRoom = [];
-    this.resultListByFacility = [];
-    this.calculationService.getCalculation(facility.id, recalculate)
-      .subscribe(result => this.resultListByRoom = result, error2 => console.log(error2));
+    this.calculationService.doCalculation(facility.id)
+      .subscribe(ok => console.log(ok), error2 => console.log(error2));
+
+    this.onCalculate.emit(facility);
 
     this.calculationService.getCalculationForFacility(facility.id)
       .subscribe(result => this.resultListByFacility = result, error2 => console.log(error2));

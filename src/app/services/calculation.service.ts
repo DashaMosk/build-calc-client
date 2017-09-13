@@ -8,14 +8,19 @@ export class CalculationService {
 
   constructor(private http: Http) { }
 
-  getCalculation(facilityId, recalculate): Observable<Result[]> {
-    return this.http.get('/api/calculation?facilityId=' + facilityId + '&recalculate=' + recalculate)
-      .map((response) => response.json())
+  doCalculation(facilityId): Observable<Result[]> {
+    return this.http.get('/api/calculation?facilityId=' + facilityId)
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
   getCalculationForFacility(facilityId): Observable<Result[]> {
     return this.http.get('/api/facilityCalc?facilityId=' + facilityId)
+      .map((response) => response.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  getCalculationForRooms(facilityId): Observable<Result[]> {
+    return this.http.get('/api/roomCalc?facilityId=' + facilityId)
       .map((response) => response.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
