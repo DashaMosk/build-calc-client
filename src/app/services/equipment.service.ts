@@ -14,8 +14,8 @@ export class EquipmentService {
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
-  getFEquipments(id: number): Observable<FacilityEquipment[]> {
-    return this.http.get('/api/equipmentList?id=' + id)
+  getFEquipments(id: number, type: string): Observable<FacilityEquipment[]> {
+    return this.http.get('/api/equipmentList?id=' + id + '&type=' + type)
       .map((response) => response.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }

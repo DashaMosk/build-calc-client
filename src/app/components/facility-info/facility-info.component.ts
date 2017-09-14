@@ -27,7 +27,7 @@ export class FacilityInfoComponent implements OnInit {
     this.onDelete.emit(facility);
   }
 
-  calculateConsumption(facility: Facility, recalculate: boolean) {
+  calculateConsumption(facility: Facility) {
     this.calculationService.doCalculation(facility.id)
       .subscribe(ok => console.log(ok), error2 => console.log(error2));
 

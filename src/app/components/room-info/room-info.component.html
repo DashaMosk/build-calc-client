@@ -10,5 +10,6 @@
   <md-card-actions>
     <button md-button [routerLink]="['/walls/' + room.facility.id + '/' + room.id]">Add Wall</button>
     <button md-button (click)="deleteRoom(room)">Delete Room</button>
+    <button md-button [routerLink]="['/facilityEquipment/' + room.id + '/ROOM']">Add Materials</button>
   </md-card-actions>
 </md-card>

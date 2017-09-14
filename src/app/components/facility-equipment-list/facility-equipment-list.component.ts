@@ -10,6 +10,7 @@ export class FacilityEquipmentListComponent implements OnInit {
 
   @Input() items: FacilityEquipment[];
   @Output() onRemove = new EventEmitter<FacilityEquipment>();
+  @Input() facilityType: string;
 
   constructor() { }
 

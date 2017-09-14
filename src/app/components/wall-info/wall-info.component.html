@@ -12,6 +12,7 @@
   <md-card-actions>
     <button md-button (click)="showDialog()">Add Element</button>
     <button md-button (click)="deleteWall(wall)">Delete Wall</button>
+    <button md-button [routerLink]="['/facilityEquipment/' + wall.id + '/WALL']">Add Materials</button>
   </md-card-actions>
 </md-card>
 

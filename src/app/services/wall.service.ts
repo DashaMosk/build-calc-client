@@ -16,6 +16,13 @@ export class WallService {
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
+  getWall(wallId: number): Observable<Wall> {
+    return this.http.get('/api/wall?id=' + wallId)
+      .map((response) => response.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+
   getWalls(rId: number): Observable<Wall[]> {
     return this.http.get('/api/' + rId + '/walls')
       .map((response) => response.json())

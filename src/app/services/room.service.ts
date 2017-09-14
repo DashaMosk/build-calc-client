@@ -16,6 +16,12 @@ export class RoomService {
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
+  getRoom(roomId: number): Observable<Room> {
+    return this.http.get('/api/room/?id=' + roomId)
+      .map((response) => response.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
   getRooms(fId: number): Observable<Room[]> {
     return this.http.get('/api/' + fId + '/rooms')
       .map((response) => response.json())

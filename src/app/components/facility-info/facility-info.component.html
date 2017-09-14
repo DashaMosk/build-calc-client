@@ -11,6 +11,6 @@
     <button md-button [routerLink]="['/rooms/' + facility.id]">Add Room</button>
     <button md-button [routerLink]="['/facilityEquipment/' + facility.id + '/FACILITY']">Add Materials</button>
     <button md-button (click)="deleteFacility(facility)">Delete</button>
-    <button md-button (click)="calculateConsumption(facility, true)">Calculate</button>
+    <button md-button (click)="calculateConsumption(facility)">Calculate</button>
   </md-card-actions>
 </md-card>

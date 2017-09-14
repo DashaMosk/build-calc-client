@@ -1,5 +1,13 @@
 <md-toolbar color="primary">
-  <a md-mini-fab routerLink="/facilities/"><md-icon>arrow_back</md-icon></a>
+  <div *ngIf="facilityType === 'FACILITY'">
+    <a md-mini-fab routerLink="/facilities/"><md-icon>arrow_back</md-icon></a>
+  </div>
+  <div *ngIf="facilityType === 'ROOM'">
+    <a md-mini-fab routerLink="/rooms/{{facilityObjectId}}"><md-icon>arrow_back</md-icon></a>
+  </div>
+  <div *ngIf="facilityType === 'WALL'">
+    <a md-mini-fab routerLink="/walls/{{facilityObjectId}}/{{roomObjectId}}"><md-icon>arrow_back</md-icon></a>
+  </div>
 </md-toolbar>
-<app-facility-equipment-list [items]="facilityEquipmentList" (onRemove)="removeItem($event)"></app-facility-equipment-list>
-<app-facility-equipment-adding (onAdd)="addFEquipment($event)"></app-facility-equipment-adding>
+<app-facility-equipment-list [facilityType]="facilityType" [items]="facilityEquipmentList" (onRemove)="removeItem($event)"></app-facility-equipment-list>
+<app-facility-equipment-adding [facilityType]="facilityType" (onAdd)="addFEquipment($event)"></app-facility-equipment-adding>

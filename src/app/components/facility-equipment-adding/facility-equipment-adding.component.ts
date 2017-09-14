@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Stuff} from '../../domain/stuff';
 import {StuffService} from '../../services/stuff.service';
 import {Message} from 'primeng/primeng';
@@ -10,6 +10,7 @@ import {Message} from 'primeng/primeng';
 })
 export class FacilityEquipmentAddingComponent implements OnInit {
 
+  @Input() facilityType: string;
   stuff: Stuff[];
   filteredStuff: Stuff[];
   stuffItem: Stuff;
