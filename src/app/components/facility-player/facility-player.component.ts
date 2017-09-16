@@ -1,7 +1,9 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Facility} from '../../domain/facility';
 import {Result} from '../../domain/result';
 import {CalculationService} from '../../services/calculation.service';
+import {RoomAccordionComponent} from '../room-accordion/room-accordion.component';
+import {FacilityInfoComponent} from '../facility-info/facility-info.component';
 
 @Component({
   selector: 'app-facility-player',
@@ -12,9 +14,14 @@ export class FacilityPlayerComponent implements OnInit {
 
   @Input() facilityList: Facility[];
   @Output() onDelete = new EventEmitter<Facility>();
-  resultListByRooms: Result[];
 
-  constructor(private calculationService: CalculationService) { }
+  @ViewChild(RoomAccordionComponent)
+  private roomAccordion: RoomAccordionComponent;
+
+  @ViewChild(FacilityInfoComponent)
+  private facilityInfo: FacilityInfoComponent;
+
+  constructor() { }
 
   ngOnInit() { }
 
@@ -23,7 +30,7 @@ export class FacilityPlayerComponent implements OnInit {
   }
 
   refreshCalculatedData(facility: Facility) {
-    this.calculationService.getCalculationForRooms(facility.id)
-      .subscribe(result => this.resultListByRooms = result, error2 => console.log(error2));
+    this.roomAccordion.refreshData();
+    this.facilityInfo.refreshData();
   }
 }

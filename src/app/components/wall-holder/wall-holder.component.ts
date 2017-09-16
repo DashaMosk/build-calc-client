@@ -26,6 +26,7 @@ export class WallHolderComponent implements OnInit {
   }
 
   addWall(wall: Wall) {
+    console.log(wall.forFloorCalculation);
     wall.room = new Room(this.roomId, '', 0, null);
     this.wallService.postWall(wall)
       .subscribe(wll => {this.wallList.push(wll); console.log('Wall was added ' + wll.name); }

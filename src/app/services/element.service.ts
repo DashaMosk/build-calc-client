@@ -42,4 +42,10 @@ export class ElementService {
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
+  getDecoration(id: number): Observable<Element> {
+    return this.http.get('/api/decoration?id=' + id)
+      .map((response) => response.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
 }

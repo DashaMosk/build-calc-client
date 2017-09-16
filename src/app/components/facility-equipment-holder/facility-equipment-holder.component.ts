@@ -7,6 +7,7 @@ import {RoomService} from '../../services/room.service';
 import {Room} from '../../domain/room';
 import {Wall} from '../../domain/wall';
 import {WallService} from '../../services/wall.service';
+import {ElementService} from '../../services/element.service';
 
 @Component({
   selector: 'app-facility-equipment-holder',
@@ -22,7 +23,7 @@ export class FacilityEquipmentHolderComponent implements OnInit {
   roomObjectId: number;
 
   constructor(private route: ActivatedRoute, private equipmentService: EquipmentService, private roomService: RoomService,
-              private wallService: WallService) {
+              private wallService: WallService, private elementService: ElementService) {
     this.facilityId = route.snapshot.params['id'];
     this.facilityType = route.snapshot.params['fType'];
     console.log(this.facilityId + ' ' + this.facilityType);
@@ -38,6 +39,11 @@ export class FacilityEquipmentHolderComponent implements OnInit {
     if (this.facilityType === 'WALL') {
       this.wallService.getWall(this.facilityId)
         .subscribe(e => { this.facilityObjectId = e.room.facility.id; this.roomObjectId = e.room.id; }, error2 => console.log(error2));
+    }
+    if (this.facilityType === 'DECORATION') {
+      this.elementService.getDecoration(this.facilityId)
+        .subscribe(e => {this.facilityObjectId = e.wall.room.facility.id; this.roomObjectId = e.wall.room.id; }
+        , error2 => console.log(error2));
     }
   }
 

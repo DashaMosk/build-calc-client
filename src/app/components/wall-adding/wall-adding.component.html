@@ -10,8 +10,8 @@
       <input mdInput placeholder="Height" maxlength="3" formControlName="height">
     </md-input-container></td>
   </tr></table>
-
   <div class="button-row">
+    <md-checkbox class="radio-margin" formControlName="forFloorCalculation" [(ngModel)]="forFloorCalculation">Finishing</md-checkbox>
     <button md-raised-button [disabled]="!rForm.valid">Add Wall</button>
   </div>
 </form>

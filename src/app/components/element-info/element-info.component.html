@@ -5,6 +5,7 @@
     <h4 md-line>{{decoration.type}}</h4>
     <p md-line>width {{decoration.width}}, height {{decoration.height}} </p>
     <button md-button (click)="deleteDecoration(decoration)">Delete</button>
+    <button md-button [routerLink]="['/facilityEquipment/' + decoration.id + '/DECORATION']">Add Materials</button>
   </md-list-item>
   <md-divider></md-divider>
   <h3 md-subheader>Apertures</h3>

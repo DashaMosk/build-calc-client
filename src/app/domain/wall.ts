@@ -6,6 +6,7 @@ export class Wall {
     public name: string,
     public height: number,
     public width: number,
-    public room: Room
+    public room: Room,
+    public forFloorCalculation: boolean
   ) { }
 }

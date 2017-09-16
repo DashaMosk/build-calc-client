@@ -13,13 +13,16 @@ export class WallAddingComponent implements OnInit {
   name: string;
   width: number;
   height: number;
+  forFloorCalculation = true;
+
   @Output() onPost = new EventEmitter<any>();
 
   constructor(private formBuilder: FormBuilder) {
     this.rForm = this.formBuilder.group({
       'name': [null, Validators.required],
       'width': [null, Validators.required],
-      'height': [null, Validators.required]
+      'height': [null, Validators.required],
+      'forFloorCalculation': [null]
     });
   }
 

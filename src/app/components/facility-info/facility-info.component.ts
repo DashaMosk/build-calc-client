@@ -32,9 +32,12 @@ export class FacilityInfoComponent implements OnInit {
       .subscribe(ok => console.log(ok), error2 => console.log(error2));
 
     this.onCalculate.emit(facility);
+  }
 
-    this.calculationService.getCalculationForFacility(facility.id)
-      .subscribe(result => this.resultListByFacility = result, error2 => console.log(error2));
+  refreshData() {
+    this.calculationService.getCalculationForFacility(this.facility.id)
+      .subscribe(result => {this.resultListByFacility = result; console.log(this.resultListByFacility.length); }
+        , error2 => console.log(error2));
   }
 
 }

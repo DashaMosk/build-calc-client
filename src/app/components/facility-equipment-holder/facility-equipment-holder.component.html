@@ -5,7 +5,7 @@
   <div *ngIf="facilityType === 'ROOM'">
     <a md-mini-fab routerLink="/rooms/{{facilityObjectId}}"><md-icon>arrow_back</md-icon></a>
   </div>
-  <div *ngIf="facilityType === 'WALL'">
+  <div *ngIf="facilityType === 'WALL' || facilityType === 'DECORATION'">
     <a md-mini-fab routerLink="/walls/{{facilityObjectId}}/{{roomObjectId}}"><md-icon>arrow_back</md-icon></a>
   </div>
 </md-toolbar>
