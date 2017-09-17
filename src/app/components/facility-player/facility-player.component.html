@@ -1,4 +1,4 @@
 <div *ngFor="let facility of facilityList">
-  <app-facility-info (onDelete)="deleteFacility($event)" (onCalculate)="refreshCalculatedData($event)" [facility]="facility"> </app-facility-info>
+  <app-facility-info (onDelete)="deleteFacility($event)" [facility]="facility"> </app-facility-info>
   <app-room-accordion [facilityId]="facility.id"></app-room-accordion>
 </div>

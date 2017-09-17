@@ -3,6 +3,7 @@ import {Facility} from '../../domain/facility';
 import {Router} from '@angular/router';
 import {Result} from '../../domain/result';
 import {CalculationService} from '../../services/calculation.service';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-facility-info',
@@ -13,10 +14,9 @@ export class FacilityInfoComponent implements OnInit {
 
   @Input() facility: Facility;
   @Output() onDelete = new EventEmitter<Facility>();
-  @Output() onCalculate = new EventEmitter<Facility>();
   resultListByFacility: Result[];
 
-  constructor(public router: Router, private calculationService: CalculationService) { }
+  constructor(private router: Router, private calculationService: CalculationService) { }
 
   ngOnInit() {
     this.calculationService.getCalculationForFacility(this.facility.id)
@@ -29,15 +29,9 @@ export class FacilityInfoComponent implements OnInit {
 
   calculateConsumption(facility: Facility) {
     this.calculationService.doCalculation(facility.id)
-      .subscribe(ok => console.log(ok), error2 => console.log(error2));
-
-    this.onCalculate.emit(facility);
-  }
-
-  refreshData() {
-    this.calculationService.getCalculationForFacility(this.facility.id)
-      .subscribe(result => {this.resultListByFacility = result; console.log(this.resultListByFacility.length); }
-        , error2 => console.log(error2));
+      .flatMap( result => Observable.of(result))
+      .subscribe(ok => { console.log(ok); this.router.navigateByUrl('/'); }, error2 => console.log(error2));
+    this.router.navigateByUrl('/inProcess');
   }
 
 }

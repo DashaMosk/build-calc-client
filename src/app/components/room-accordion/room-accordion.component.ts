@@ -24,10 +24,4 @@ export class RoomAccordionComponent implements OnInit {
        .subscribe(rooms => { this.roomList = rooms; console.log(rooms); }
        , err => { console.log(err); });
   }
-
-  refreshData() {
-    this.calculationService.getCalculationForRooms(this.facilityId)
-      .subscribe(result => this.calculation = result, error2 => console.log(error2));
-  }
-
 }

@@ -28,9 +28,4 @@ export class FacilityPlayerComponent implements OnInit {
   deleteFacility(facility: Facility) {
     this.onDelete.emit(facility);
   }
-
-  refreshCalculatedData(facility: Facility) {
-    this.roomAccordion.refreshData();
-    this.facilityInfo.refreshData();
-  }
 }

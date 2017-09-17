@@ -8,7 +8,7 @@ export class CalculationService {
 
   constructor(private http: Http) { }
 
-  doCalculation(facilityId): Observable<Result[]> {
+  doCalculation(facilityId): Observable<any> {
     return this.http.get('/api/calculation?facilityId=' + facilityId)
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }

@@ -16,5 +16,4 @@ export class StuffTableComponent implements OnInit {
   constructor() { }
 
   ngOnInit() { }
-
 }

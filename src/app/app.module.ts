@@ -50,6 +50,7 @@ import { FacilityEquipmentElementComponent } from './components/facility-equipme
 import {CalculationService} from './services/calculation.service';
 import { CalculationInfoComponent } from './components/calculation-info/calculation-info.component';
 import { RoomFilterComponent } from './components/room-filter/room-filter.component';
+import { InProcessPageComponent } from './components/in-process-page/in-process-page.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { RoomFilterComponent } from './components/room-filter/room-filter.compon
     FacilityEquipmentElementComponent,
     CalculationInfoComponent,
     RoomFilterComponent,
+    InProcessPageComponent,
   ],
   entryComponents: [
   ],
@@ -138,6 +140,10 @@ import { RoomFilterComponent } from './components/room-filter/room-filter.compon
       {
         path: 'facilityEquipment/:id/:fType',
         component: FacilityEquipmentHolderComponent
+      },
+      {
+        path: 'inProcess',
+        component: InProcessPageComponent
       },
       {
         path: '',
