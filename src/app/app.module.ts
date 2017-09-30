@@ -51,6 +51,21 @@ import {CalculationService} from './services/calculation.service';
 import { CalculationInfoComponent } from './components/calculation-info/calculation-info.component';
 import { RoomFilterComponent } from './components/room-filter/room-filter.component';
 import { InProcessPageComponent } from './components/in-process-page/in-process-page.component';
+import {AngularFireModule} from 'angularfire4';
+import {AuthService} from './services/auth.service';
+import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
+import {AngularFireAuthModule} from 'angularfire4/auth';
+import {AngularFireDatabaseModule} from 'angularfire4/database';
+import {CanActivateGuardService} from './services/can-activate-guard.service';
+
+export const firebaseConfig = {
+    apiKey: 'AIzaSyAnh9dNvcJdnfJKXIdo5zOeV334mdul0dI',
+    authDomain: 'build-calculator-ed84d.firebaseapp.com',
+    databaseURL: 'https://build-calculator-ed84d.firebaseio.com',
+    projectId: 'build-calculator-ed84d',
+    storageBucket: 'build-calculator-ed84d.appspot.com',
+    messagingSenderId: '529289733704'
+};
 
 @NgModule({
   declarations: [
@@ -84,6 +99,7 @@ import { InProcessPageComponent } from './components/in-process-page/in-process-
     CalculationInfoComponent,
     RoomFilterComponent,
     InProcessPageComponent,
+    WelcomePageComponent
   ],
   entryComponents: [
   ],
@@ -116,39 +132,54 @@ import { InProcessPageComponent } from './components/in-process-page/in-process-
     DataTableModule,
     ToolbarModule,
     MessagesModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     RouterModule.forRoot([
       {
         path: 'facilities',
-        component: FacilityHolderComponent
+        component: FacilityHolderComponent,
+        canActivate: [CanActivateGuardService]
       },
       {
         path: 'rooms/:id',
-        component: RoomHolderComponent
+        component: RoomHolderComponent,
+        canActivate: [CanActivateGuardService]
       },
       {
         path: 'walls/:facilityId/:roomId',
-        component: WallHolderComponent
+        component: WallHolderComponent,
+        canActivate: [CanActivateGuardService]
       },
       {
         path: 'stuff',
-        component: StuffHolderComponent
+        component: StuffHolderComponent,
+        canActivate: [CanActivateGuardService]
       },
       {
         path: 'packing',
-        component: PackingHolderComponent
+        component: PackingHolderComponent,
+        canActivate: [CanActivateGuardService]
       },
       {
         path: 'facilityEquipment/:id/:fType',
-        component: FacilityEquipmentHolderComponent
+        component: FacilityEquipmentHolderComponent,
+        canActivate: [CanActivateGuardService]
+      },
+      {
+        path: 'welcome',
+        component: WelcomePageComponent
       },
       {
         path: 'inProcess',
-        component: InProcessPageComponent
+        component: InProcessPageComponent,
+        canActivate: [CanActivateGuardService]
       },
       {
         path: '',
         redirectTo: '/facilities',
-        pathMatch: 'full'
+        pathMatch: 'full',
+        canActivate: [CanActivateGuardService]
       },
     ])
   ],
@@ -161,7 +192,9 @@ import { InProcessPageComponent } from './components/in-process-page/in-process-
     PackingService,
     EquipmentService,
     DoubleFormatterPipe,
-    CalculationService
+    CalculationService,
+    AuthService,
+    CanActivateGuardService
   ],
   bootstrap: [AppComponent]
 })
